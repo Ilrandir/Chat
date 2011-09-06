@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Chat" basedir="." default="build">
+
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+	<property name="src" location="src" />
+	<property name="lib" location="lib" />
+
+	<path id="libraries">
+		<fileset dir="${lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="test">
+		<echo message="test" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+	<target name="build" depends="clean, init">
+		<javac srcdir="${src}" destdir="${build}" />
+	</target>
+
+</project>
